@@ -51,18 +51,18 @@ app = FastAPI(
 # ---------------------------------------------------------------------------
 # LOAD ON STARTUP (BEST PRACTICE)
 # ---------------------------------------------------------------------------
-@app.on_event("startup")
-def startup_event():
-    global osm_graph, road_graph
+# @app.on_event("startup")
+# def startup_event():
+#     global osm_graph, road_graph
 
-    print("Loading OSM graph...")
-    if not os.path.exists(GRAPHML_PATH):
-        raise RuntimeError(f"GraphML file not found at {GRAPHML_PATH}. Run convert_osm.py first!")
+#     print("Loading OSM graph...")
+#     if not os.path.exists(GRAPHML_PATH):
+#         raise RuntimeError(f"GraphML file not found at {GRAPHML_PATH}. Run convert_osm.py first!")
     
-    osm_graph = load_osm_graph(GRAPHML_PATH)
-    road_graph = convert_osm_to_astar_graph(osm_graph)
+#     osm_graph = load_osm_graph(GRAPHML_PATH)
+#     road_graph = convert_osm_to_astar_graph(osm_graph)
 
-    print("✓ OSM graph loaded, ready for routing")
+#     print("✓ OSM graph loaded, ready for routing")
 
 
 app.add_middleware(
